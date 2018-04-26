@@ -1077,9 +1077,9 @@ static string clone_flags_to_str(int clone_flags) {
 #endif
 
 pid_t Cgroup::spawn(spawn_arg& arg) {
-    // uid and gid should > 0
-    if (arg.uid <= 0 || arg.gid <= 0) {
-        WARNING("uid and gid can not <= 0. spawn rejected");
+    // uid and gid should >= 0
+    if (arg.uid < 0 || arg.gid < 0) {
+        WARNING("uid and gid can not < 0. spawn rejected");
         return -2;
     }
 
