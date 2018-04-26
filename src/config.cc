@@ -118,23 +118,23 @@ void MainConfig::check() {
     int is_root = (getuid() == 0);
     std::vector<string> error_messages;
 
-    if (this->arg.uid == 0) {
-        error_messages.push_back(
-                "For security reason, running commands with uid = 0 is not allowed.\n"
-                "Please specify a user ID using `--uid`.");
-    } else if (!is_root && this->arg.uid != getuid()) {
-        error_messages.push_back(
-                "For security reason, setting uid to other user requires root.");
-    }
-
-    if (this->arg.gid == 0) {
-        error_messages.push_back(
-                "For security reason, running commands with gid = 0 is not allowed.\n"
-                "Please specify a group ID using `--gid`.");
-    } else if (!is_root && this->arg.gid != getgid()) {
-        error_messages.push_back(
-                "For security reason, setting gid to other group requires root.");
-    }
+//    if (this->arg.uid == 0) {
+//        error_messages.push_back(
+//                "For security reason, running commands with uid = 0 is not allowed.\n"
+//                "Please specify a user ID using `--uid`.");
+//    } else if (!is_root && this->arg.uid != getuid()) {
+//        error_messages.push_back(
+//                "For security reason, setting uid to other user requires root.");
+//    }
+//
+//    if (this->arg.gid == 0) {
+//        error_messages.push_back(
+//                "For security reason, running commands with gid = 0 is not allowed.\n"
+//                "Please specify a group ID using `--gid`.");
+//    } else if (!is_root && this->arg.gid != getgid()) {
+//        error_messages.push_back(
+//                "For security reason, setting gid to other group requires root.");
+//    }
 
     if (this->arg.argc <= 0) {
         error_messages.push_back(
